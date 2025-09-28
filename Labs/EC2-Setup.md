@@ -1,68 +1,12 @@
-# AWS EC2 Setup Lab
+# Lab: AWS EC2 Setup  
 
-This guide shows how to **launch and connect to your first EC2 instance** on AWS.  
-It is designed for beginners who are learning cloud computing and want hands-on practice.
+This lab guides you through launching and connecting to an AWS EC2 instance.  
 
----
+## Steps  
+1. Log in to AWS Console → EC2 Dashboard  
+2. Launch an Instance → Choose Amazon Linux 2 (t2.micro, free tier)  
+3. Configure key pair and security groups  
+4. Connect via SSH using public IP  
+5. Run `sudo yum update -y` to update the server  
 
-## Step 1: Log in to AWS
-1. Go to [AWS Management Console](https://aws.amazon.com/console/).
-2. Log in with your AWS account.
-3. Navigate to **EC2 Dashboard**.
-
----
-
-## Step 2: Launch an EC2 Instance
-1. Click **Launch Instance**.
-2. Select an **Amazon Machine Image (AMI)**:
-   - Choose **Amazon Linux 2 AMI (Free Tier)**.
-3. Choose **Instance Type**:
-   - Select **t2.micro** (Free Tier Eligible).
-4. Click **Next: Configure Instance Details**.
-
----
-
-## Step 3: Configure Instance
-1. Leave most settings as default for first setup.
-2. Ensure **Auto-assign Public IP** is enabled (so you can connect remotely).
-
----
-
-## Step 4: Add Storage
-- Default storage (8GB) is enough for beginners.
-- Click **Next: Add Tags**.
-
----
-
-## Step 5: Add Tags (Optional)
-- Click **Add Tag** and enter:  
-  - Key: `Name`  
-  - Value: `MyFirstEC2`
-
----
-
-## Step 6: Configure Security Group
-1. Create a new security group.
-2. Add **Inbound Rule**:  
-   - Type: SSH  
-   - Protocol: TCP  
-   - Port: 22  
-   - Source: My IP (recommended)
-3. Click **Review and Launch**.
-
----
-
-## Step 7: Launch Instance
-1. Click **Launch**.
-2. Select **Create a new key pair**:
-   - Name it `MyFirstKey`
-   - Download `.pem` file (keep it safe!)
-3. Click **Launch Instances**.
-
----
-
-## Step 8: Connect to Your EC2 Instance
-### On Mac/Linux:
-```bash
-chmod 400 MyFirstKey.pem
-ssh -i "MyFirstKey.pem" ec2-user@<Public-IP>
+✅ You now have a running EC2 instance.  
